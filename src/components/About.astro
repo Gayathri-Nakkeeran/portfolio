@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets';
+import image2 from "../images/image2.jpeg"
+---
+
+<section
+   id="about"
+   class="mx-auto flex justify-evenly mb-4 scroll-mt-36 lg:w-[70%] lg:flex-row lg:px-10 sm:w-[60%] xxs:w-full xxs:flex-col-reverse xxs:px-5"
+>
+   <Image
+      src={image2}
+      alt="#"
+      class="hidden lg:block object-cover rounded-lg sm:w-[100%]  lg:w-[60%] lg:h-64 sm:ml-0 xs:w-[80%] xs:h-[200px] mx-auto w-full"
+   />
+
+   <div class="flex flex-col justify-center gap-y-3 text-center lg:w-[50%] lg:mx-0 md:mb-4 xs:w-[80%] xs:mb-6 xs:mx-auto">
+      <h2 class="font-black lg:text-[50px] xs:text-6xl">
+         Helloooyy I'm <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 from-30% via-orange-500 via-70% to-orange-400 xl:inline xs:block">Gayathri</span>
+      </h2>
+
+      <p class="opacity-60 text-[17px]">
+         <span class="block mb-2">Newbie Full Stack developer</span>
+         <span class="block">Working with javascript and nextjs</span>
+         <span class="block">and trying to learn all others magically.</span>
+      </p>
+   </div>
+</section>

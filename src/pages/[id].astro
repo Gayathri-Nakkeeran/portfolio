@@ -1,0 +1,86 @@
+---
+const { id } = Astro.params;
+import Layout from '../layouts/Layout.astro';
+import { projects, buttons } from '../assets/data';
+import Navbar from '../components/Navbar.astro';
+
+export function getStaticPaths() {
+   return [
+      { params: { id: 'pokeRedux' } },
+      { params: { id: 'themify' } },
+      { params: { id: 'todo' } },
+      { params: { id: 'netflix-clone' } },
+      { params: { id: 'airbnb-clone' } },
+      { params: { id: 'hunger-stuck' } },
+   ];
+}
+
+const card = projects.find((card) => card.image == id);
+---
+
+<Layout title={`Project | ${id}`}>
+
+   <div
+      class="relative flex items-center lg:h-screen xs:h-fit"
+      transition:name={`image-${id}`}
+      transition:persist
+   >
+      <!--=============== Background ===============-->
+     {card &&
+     <div
+         class="absolute min-h-screen inset-0 z-[-1] bg-gradient-to-b from-context"
+         style=`--context-color: ${card.color}`
+      >
+         <img
+            src={`${id}.jpg`}
+            alt="#"
+            id="fade-image"
+            class="transition-all duration-500 absolute z-[-1] inset-0 mix-blend-overlay opacity-20 scale-90 w-full h-full object-cover blur-md"
+         />
+
+         <div class="absolute inset-0 bg-gradient-to-t via-transparent from-zinc-900"></div>
+      </div>
+        <!--=============== Main Section ===============-->
+       <div class="flex justify-center items-center w-full h-[80%] xs:h-fit">
+         <div class="flex gap-x-10 2xl:mt-2 2xl:w-3/5 2xl:h-fit xl:w-4/5 lg:mt-0  lg:h-[90%] xxs:w-4/5 xxs:flex-col-reverse lg:flex-row xxl:flex-col">
+            <img
+               src={`${id}.jpg`}
+               alt="#"
+               class="hover:scale-[105%] duration-300 ease-in aspect-square object-cover object-top  lg:mb-0 lg:mt-0 xs:w-[450px] lg:w-[30%] xxl:w-[50%]"
+            />
+           
+
+            <div class="flex flex-col gap-y-3 relative lg:py-0 xl:py-12 xxs:py-16 ">
+               <h1 class="font-black sm:text-[75px] sm:leading-[70px] xxs:text-[60px] xxs:leading-[55px] xs:text-[45px] xs:leading-[40px]">{card.title}</h1>
+               <p class="text-white/70 sm:text-[17px] xs:text-[12px] text-justify xxl:text-[32px] ">{card.description}</p>
+
+               <!--=============== Buttons ===============-->
+               <div class="absolute flex gap-x-5 lg:top-full xxs:top-0  items-center pt-2 lg:pt-12 xl:pt-2 ">
+                  <a
+                     href={`/#${id}`}
+                     class="text-2xl font-bold text-gray-400 hover:text-white duration-300 ease-in"
+                     ><i class={`${buttons[0].back} lg:text-[20px] xs:text-[14px]`}> <span class="hidden md:block">Back</span></i></a
+                  >
+
+                  <a
+                     target="_blank"
+                     href={buttons[0].hrefgithub}
+                     class="text-2xl text-gray-400 hover:text-white duration-300 ease-in"
+                     ><i class={`${buttons[0].github} lg:text-[20px] xs:text-[14px]`}> <span class="hidden md:block">Source</span></i></a
+                  >
+
+                  <a
+                     href="#"
+                     class="text-2xl text-gray-400 hover:text-white duration-300 ease-in"
+                     ><i class={`${buttons[0].demo} lg:text-[20px] xs:text-[14px]`}> <span class="hidden md:block">Demo</span></i></a
+                  >
+               </div>
+            </div>
+         </div>
+      </div>}
+     
+
+    
+     
+   </div>
+</Layout>

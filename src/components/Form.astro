@@ -1,0 +1,25 @@
+<section class="relative flex justify-center items-center mx-auto py-16 w-full bg-black">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0 bg-cover bg-center blur-sm" style="background-image: url('/contact-me.jpeg');"></div>
+    
+    <!-- Form Container -->
+    <div class="relative z-10 bg-opacity-40  sm:w-[50%] xs:w-full rounded-lg shadow-2xl p-8">
+        <h2 class="text-4xl sm:text-5xl font-bold mb-6 text-center">
+            <span class="bg-clip-text opacity-70  ">Contact Me</span>
+        </h2>
+        <p class="text-white  text-xl text-center mb-8">Feel free to reach out for collaborations, inquiries, or just a friendly coding chat anytime!</p>
+
+        <form id="form" autocomplete="off" class="flex flex-col space-y-4">
+            <!-- Name -->
+            <label for="from_name" class="font-bold text-[17px] opacity-90">Name</label>
+            <input required type="text" id="from_name" name="from_name" placeholder="Your Name" class="bg-transparent border-white/50 border-2 placeholder:text-white/50 px-3 py-[5px] rounded-md mb-3 md:w-[80%] xs:w-full focus:outline-pink-100">
+
+            <!-- Message -->
+            <label for="message" class="font-bold text-[17px] opacity-90">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Your Message" class="bg-transparent border-white/50 border-2 placeholder:text-white/50 px-3 py-[5px] rounded-md mb-3 md:w-[80%] xs:w-full focus:outline-pink-100 "></textarea>
+
+            <!-- Submit Button -->
+            <button id="button" class="bg-transparent border border-gray-300 text-white hover:bg-gray-300 hover:text-black font-semibold py-2 px-4 rounded-md shadow-lg transition duration-300 md:w-[80%]">Submit</button>
+        </form>
+    </div>
+</section>
